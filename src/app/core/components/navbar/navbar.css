@@ -1,15 +1,7 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-}
-
-
-/* <!------------------------->
-<!-- Top Navigation Bar -->
-<!-------------------------> */
-
+/* ========================= */
 /* Main Navbar */
+/* ========================= */
+
 .navbar {
   display: flex;
   align-items: center;
@@ -22,7 +14,10 @@ body {
   box-sizing: border-box;
 }
 
-/* Navigation Links - Truly Centered */
+/* ========================= */
+/* Navigation Links */
+/* ========================= */
+
 .nav-links {
   position: absolute;
   left: 50%;
@@ -31,8 +26,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  gap: 10px;
+  gap: 5px;
 
   list-style: none;
   margin: 0;
@@ -55,11 +49,10 @@ body {
   background-color: #4CAF50;
 }
 
-/* <!------------------------->
-<!-- Search Bar -->
-<!-------------------------> */
+/* ========================= */
+/* Search */
+/* ========================= */
 
-/* Search Form on the Right */
 .search-form {
   display: flex;
   align-items: center;
@@ -78,12 +71,40 @@ body {
 
 .search-button {
   color: white !important;
-  background-color: #52b9f5 !important;
-  border: 1px solid #0b92e6 !important;
+  background-color: #52b0e6 !important;
+  border: 1px solid #52b0e6 !important;
 }
 
 .search-button:hover {
   color: white !important;
   background-color: #0b92e6 !important;
   border-color: #0b92e6 !important;
+}
+
+
+/* ========================= */
+/* Tablet / Mobile */
+/* ========================= */
+@media (max-width: 926px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+  }
+
+  .search-form {
+    width: 100%;
+    justify-content: center;
+    margin: 8px 0 0 0;
+  }
 }
