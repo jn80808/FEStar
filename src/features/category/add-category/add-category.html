@@ -1,1 +1,43 @@
-<p>add-category works!</p>
+<div class="container">
+    <h1 class="mt-3">Add Category</h1>
+
+
+    <form [formGroup]="addCategoryFormGroup" (ngSubmit)="onSubmit()">
+        <!-- Name -->
+        <div class="mt-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="name" />
+            <!-- Validation  -->
+            @if (nameFormControl.touched && nameFormControl.hasError('required')){
+                <p class="text-danger small">This is a required field</p>
+            }
+            @if (nameFormControl.touched && nameFormControl.hasError('maxlength')){
+                <p class="text-danger small">Category Name can only be 100 characters long</p>
+            }
+
+        </div>
+
+        <!-- URL Handle -->
+        <div class="mt-3">
+            <label class="form-label">URL Handle (Slug)</label>
+            <input type="text" class="form-control" formControlName="urlHandle" />
+
+            <!-- Validation  -->
+            @if (urlHandleFormControl.touched && urlHandleFormControl.hasError('required')){
+                <p class="text-danger small">This is a required field</p>
+            }
+            @if (urlHandleFormControl.touched && urlHandleFormControl.hasError('maxlength')){
+                <p class="text-danger small">Category Name can only be 100 characters long</p>
+            }
+        </div>
+
+        <!-- Save -->
+        <div class="mt-3">
+            <button type="submit" 
+                    class="btn btn-primary" 
+                    [disabled]="addCategoryFormGroup.invalid">
+                Save
+            </button>
+        </div>
+    </form>
+</div>

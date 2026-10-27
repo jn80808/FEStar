@@ -1,12 +1,12 @@
 import { Component, effect, inject } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CategoryService } from '../services/category-service';
 import { AddCategoryRequest } from '../model/category.model';
 
 @Component({
   selector: 'app-add-category',
-  imports:[RouterLink],
+  imports:[ReactiveFormsModule],
   templateUrl: './add-category.html',
   styleUrl: './add-category.css',
 })
