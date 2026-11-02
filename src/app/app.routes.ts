@@ -8,7 +8,7 @@ export const routes: Routes = [
         component:CategoryList
     },
     {
-        path: 'admin/categories/create',
+        path: 'admin/categories/add',
         component:AddCategory
     }
 ];

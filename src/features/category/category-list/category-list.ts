@@ -5,7 +5,7 @@ import { CategoryService } from '../services/category-service';
 
 @Component({
   selector: 'app-category-list',
-  standalone: true,
+  // standalone: true,
   imports: [RouterLink],
   templateUrl: './category-list.html',
   styleUrl: './category-list.css'
