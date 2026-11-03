@@ -1,1 +1,133 @@
-<p>edit-category works!</p>
+
+<div class="container py-4">
+
+    <!-- Page Header -->
+    <div class="mb-4">
+        <h2 class="fw-bold mb-1">Edit Category</h2>
+        <p class="text-muted mb-0">
+            Admin / Categories / Edit
+        </p>
+    </div>
+
+    <!-- Edit Category Card -->
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-white py-3">
+            <h5 class="fw-semibold mb-1">Update Category Details</h5>
+            <p class="text-muted small mb-0">
+                Modify the category information below.
+            </p>
+        </div>
+
+        <div class="card-body p-4">
+
+            <form
+                [formGroup]="editCategoryFormGroup"
+                (ngSubmit)="onSubmit()"
+                novalidate>
+
+                <!-- Category Name -->
+                <div class="mb-3">
+                    <label for="name" class="form-label fw-semibold">
+                        Category Name
+                    </label>
+
+                    <input
+                        id="name"
+                        type="text"
+                        class="form-control"
+                        formControlName="name"
+                        placeholder="Enter category name"
+                        maxlength="100"
+                        autocomplete="off"
+                        [class.is-invalid]="
+                            nameFormControl.touched &&
+                            nameFormControl.invalid
+                        "
+                    />
+
+                    @if (
+                        nameFormControl.touched &&
+                        nameFormControl.hasError('required')
+                    ) {
+                        <div class="invalid-feedback">
+                            Category name is required.
+                        </div>
+                    }
+
+                    @if (
+                        nameFormControl.touched &&
+                        nameFormControl.hasError('maxlength')
+                    ) {
+                        <div class="invalid-feedback">
+                            Category name cannot exceed 100 characters.
+                        </div>
+                    }
+                </div>
+
+                <!-- URL Handle -->
+                <div class="mb-4">
+                    <label for="urlHandle" class="form-label fw-semibold">
+                        URL Handle (Slug)
+                    </label>
+
+                    <input
+                        id="urlHandle"
+                        type="text"
+                        class="form-control"
+                        formControlName="urlHandle"
+                        placeholder="Enter URL handle"
+                        maxlength="100"
+                        autocomplete="off"
+                        [class.is-invalid]="
+                            urlHandleFormControl.touched &&
+                            urlHandleFormControl.invalid
+                        "
+                    />
+
+                    <div class="form-text">
+                        Example: /categories/technology
+                    </div>
+
+                    @if (
+                        urlHandleFormControl.touched &&
+                        urlHandleFormControl.hasError('required')
+                    ) {
+                        <div class="invalid-feedback">
+                            URL handle is required.
+                        </div>
+                    }
+
+                    @if (
+                        urlHandleFormControl.touched &&
+                        urlHandleFormControl.hasError('maxlength')
+                    ) {
+                        <div class="invalid-feedback">
+                            URL handle cannot exceed 100 characters.
+                        </div>
+                    }
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-end gap-2">
+
+                    <!-- <a
+                        [routerLink]="['/admin', 'categories']"
+                        class="btn btn-outline-secondary">
+                        Cancel
+                    </a> -->
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+                        Update Category
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
